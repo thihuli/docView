@@ -32,7 +32,7 @@ export default function AdminPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Local Edits</CardTitle>
+            <CardTitle>Edições locais</CardTitle>
           </CardHeader>
           <CardContent>
             <ScrollArea className="h-[600px]">
@@ -46,7 +46,7 @@ export default function AdminPage() {
                   <div>
                     <div className="font-medium">{edit.path}</div>
                     <div className="text-sm text-muted-foreground">
-                      {format(new Date(edit.timestamp), "PPpp")}
+                      {format(new Date(edit.timestamp), "dd/MM/yyyy HH:mm:ss")}
                     </div>
                   </div>
                 </Button>
@@ -57,19 +57,19 @@ export default function AdminPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Diff View</CardTitle>
+            <CardTitle>Visualizador de diferença</CardTitle>
           </CardHeader>
           <CardContent>
             {selectedEdit ? (
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-medium mb-2">Original Content</h4>
+                  <h4 className="font-medium mb-2">Conteúdo original</h4>
                   <pre className="bg-muted p-4 rounded-lg overflow-auto">
                     {selectedEdit.originalContent}
                   </pre>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-2">Modified Content</h4>
+                  <h4 className="font-medium mb-2">Conteúdo modificado</h4>
                   <pre className="bg-muted p-4 rounded-lg overflow-auto">
                     {selectedEdit.content}
                   </pre>
@@ -77,7 +77,7 @@ export default function AdminPage() {
               </div>
             ) : (
               <div className="text-center text-muted-foreground">
-                Select an edit to view differences
+                Selecione uma edição para ver o diff
               </div>
             )}
           </CardContent>
